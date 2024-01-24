@@ -40,9 +40,9 @@ public class StickJump : MonoBehaviour
     }
     public void BodyJump(Vector3 hitPos)
     {
-        var direction =  transform.position- hitPos;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(direction.normalized * jumpForce, ForceMode2D.Impulse);
+
+        rb.velocity = new Vector3(rb.velocity.x, 0, 0);
+        rb.AddForce(Vector3.up * jumpForce *100 , ForceMode2D.Force);
         /*
          var speed = lastVelocity.magnitude;
          var direction = Vector3.Reflect(lastVelocity.normalized, hitPos);

@@ -22,7 +22,7 @@ public class EndInteraction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Ground")
+        if (other.transform.GetComponent<Ground>())
         {
                 DOTween.Complete("JumpAnim");
                 transform.root.DOScaleY(0.9f, .04f).SetEase(Ease.OutBounce).SetLoops(2,LoopType.Yoyo).SetId("JumpAnim");

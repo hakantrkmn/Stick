@@ -22,11 +22,10 @@ public class BodyInteraction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Ground")
+        if (other.transform.GetComponent<Ground>())
         {
-
-
-            DOTween.Complete("JumpAnim");
+                    DOTween.Complete("JumpAnim");
+            Debug.Log("body");
             jumpController.BodyJump(other.contacts[0].point);
         }
     }
